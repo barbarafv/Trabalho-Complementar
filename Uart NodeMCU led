@@ -1,0 +1,26 @@
+int led = 5;     // LED pin
+int button = 16; // push button is connected
+int temp = 0;    // temporary variable for reading the button pin status
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(led, OUTPUT);   // declare LED as output
+  pinMode(button, INPUT); // declare push button as input
+}
+
+void loop() {
+  temp = digitalRead(button);
+     if (temp == HIGH) {
+     
+        digitalWrite(led, HIGH);
+        Serial.print("LED ON\n");
+        Serial.write("LED ON\n");
+        delay(1000);
+       }
+     else {
+        digitalWrite(led, LOW);
+        Serial.print("LED OFF\n");
+        Serial.write("LED OFF\n");
+        delay(300);
+       }
+}
